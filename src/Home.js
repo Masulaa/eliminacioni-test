@@ -24,9 +24,7 @@ const Home = (props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLoading(false);
-    }, 2000);
-
-    var title = "Products";
+    }, 1600);
 
     return () => {
       clearTimeout(timer);
@@ -55,7 +53,7 @@ const Home = (props) => {
           </div>
         </section>
         <div>
-          {showLoading || length === 0 && visible >= length ? null : (
+          {showLoading || (length === 0 && visible >= length) ? null : (
             <div className={'Od-do'}>
             <hr/>
             <button onClick={loadMore}>Load more</button>

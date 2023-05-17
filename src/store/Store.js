@@ -13,7 +13,7 @@ const productSlice = createSlice({
             state = [...state, action.payload];
         },
         deleteProduct: (state, action) => {
-            state = state.filter(product => product.id !== action.payload);
+            return state.filter(product => product.id !== action.payload);
         },
         updateProduct: (state, action) => {
             const { id } = action.payload;
