@@ -37,7 +37,7 @@ const Home = (props) => {
         {showLoading || length === 0 ? (
               <div></div> 
             ) : (
-          <h1>Products</h1>)}
+          <h1 class="naslov">Products</h1>)}
         </header>
         <section>
             {showLoading || length === 0 ? (
