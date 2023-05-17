@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Fragment } from "react";
 
-import "./ProductSingle.css";
+import "./ProductDetalji.css";
 
 const ProductSingle = () => {
   let navigate = useNavigate();

@@ -32,6 +32,7 @@ const updateHandler = () =>{
         dispatch(productActions.updateHandler(product.id));
 }).catch((error) => {
     console.log("Došlo je do greške:", error);
+    navigate(`/`);
   });
 
 }
@@ -47,7 +48,7 @@ return (
             <input type="text" name='price' placeholder='Cijena' className="inputi"  />
             </div>
             <div className="dugmad">
-            <button type="Submit" className="potvrdi" onClick={updateHandler && navigate('/')} >Potvrdi</button>
+            <button type="Submit" className="potvrdi" onClick={updateHandler }>Potvrdi</button>
             <button type="Reset"className="reset">Resetuj</button></div>
         </form>
         <button

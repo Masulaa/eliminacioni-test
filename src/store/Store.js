@@ -25,7 +25,6 @@ const productSlice = createSlice({
     }
 });
 
-export const {addProduct, deleteProduct, updateProduct} = productSlice.actions;
 export const productActions = productSlice.actions;
 
 const items = configureStore({

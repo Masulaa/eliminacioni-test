@@ -32,7 +32,6 @@ const Home = (props) => {
   }, []);
 
   return (
-    <>
       <main>
         <header>
         {showLoading || length === 0 ? (
@@ -40,9 +39,7 @@ const Home = (props) => {
             ) : (
           <h1>Products</h1>)}
         </header>
-
         <section>
-          <div>
             {showLoading || length === 0 ? (
               <Loading/>
             ) : (
@@ -50,19 +47,16 @@ const Home = (props) => {
                 <ProductItem key={product.id} item={product} />
               ))
             )}
-          </div>
         </section>
-        <div>
+        <footer>
           {showLoading || (length === 0 && visible >= length) ? null : (
             <div className={'Od-do'}>
             <hr/>
             <button onClick={loadMore}>Load more</button>
             </div>
           )}
-          <div></div>
-        </div>
+        </footer>
       </main>
-    </>
   );
 };
 

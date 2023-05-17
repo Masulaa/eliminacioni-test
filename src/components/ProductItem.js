@@ -3,22 +3,22 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { productActions } from "../store/Store";
 
-import "./items.css";
+import "./ProductItem.css";
 
 const ProductItem = (props) => {
   let navigate = useNavigate();
 
-  const prod = props.item;
+  const product = props.item;
   const dispatch = useDispatch();
 
   const deleteHandler = () => {
-    fetch(`https://dummyjson.com/products/${prod.id}`, {
+    fetch(`https://dummyjson.com/products/${product.id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(prod.id);
-        dispatch(productActions.deleteProduct(prod.id));
+        console.log(product.id);
+        dispatch(productActions.deleteProduct(product.id));
       })
       .catch((error) => {
         console.log("Došlo je do greške:", error);
@@ -28,18 +28,18 @@ const ProductItem = (props) => {
   return (
     <Fragment>
       <div className="block">
-        <img src={prod.thumbnail} alt="slika" className={"slika"} />
+        <img src={product.thumbnail} alt="slika" className={"slika"} />
         <div className={"1"}>
-          <p className={"mb2"}>{prod.title}</p>
-          <p className={"mb3"}>{prod.category}</p>
-          <p className={"mb4"}>${prod.price}</p>
+          <p className={"mb2"}>{product.title}</p>
+          <p className={"mb3"}>{product.category}</p>
+          <p className={"mb4"}>${product.price}</p>
         </div>
         <section className={"col-4"}>
           <div className={"kartica"}>
             <button
               className={"detail"}
               onClick={() => {
-                navigate(`/product/${prod.id}`);
+                navigate(`/product/${product.id}`);
               }}
             >
               Pogledaj detalje
@@ -47,7 +47,7 @@ const ProductItem = (props) => {
             <button
               className={"edit"}
               onClick={() => {
-                navigate(`/izmjeni/${prod.id}`);
+                navigate(`/izmjeni/${product.id}`);
               }}
             >
               Izmjeni
