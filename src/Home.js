@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ProductItem from "./components/ProductItem";
 import Loading from "./components/Loading/Loading";
 import  './Home.css';
 
-const Home = (props) => {
+const Home = () => {
   const products = useSelector((state) => state.products);
   const length = products.length;
 
@@ -37,7 +38,10 @@ const Home = (props) => {
         {showLoading || length === 0 ? (
               <div></div> 
             ) : (
-          <h1 class="naslov">Products</h1>)}
+              <div>
+              <h1 className="naslov">Products</h1>
+              <Link to="/novi">Dodaj produkt</Link>
+            </div>)}
         </header>
         <section>
             {showLoading || length === 0 ? (

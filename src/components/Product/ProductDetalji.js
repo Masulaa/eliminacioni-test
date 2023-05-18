@@ -4,15 +4,18 @@ import { Fragment } from "react";
 
 import "./ProductDetalji.css";
 
-const ProductSingle = () => {
-  let navigate = useNavigate();
-  let params = useParams();
+const ProductDetalji = () => {
+  const navigate = useNavigate();
+  const params = useParams();
   const id = params.id;
 
-  const product = useSelector(
-    (state) =>
-      state.products.filter((products) => products.id === parseInt(id))[0]
+  const product = useSelector((state) =>
+    state.products.find((product) => product.id === parseInt(id))
   );
+
+  if (!product) {
+    return <div>Proizvod nije pronađen.</div>;
+  }
 
   const minusValue = Math.round(
     (product.discountPercentage / 100) * product.price
@@ -25,7 +28,7 @@ const ProductSingle = () => {
     <Fragment>
       <section className="minecraft">
         <div>
-          <img className="slika2" src={pic} alt="" />
+          <img className="slika2" src={pic} alt={pic} />
         </div>
         <div className="tekst">
           <h1>{product.title}</h1>
@@ -36,7 +39,7 @@ const ProductSingle = () => {
             Stara cijena: <div className="stara">{product.price}€</div>
           </p>
           <p>
-            Nova cijena: <div className="nova">{newValue}€ </div>(popust:{" "}
+            Nova cijena: <div className="nova">{newValue}€</div> (popust:{" "}
             <div className="popust">{product.discountPercentage}%</div>)
           </p>
         </div>
@@ -44,7 +47,7 @@ const ProductSingle = () => {
       <button
         className="back"
         onClick={() => {
-          navigate(`/`);
+          navigate("/");
         }}
       >
         Nazad
@@ -53,4 +56,4 @@ const ProductSingle = () => {
   );
 };
 
-export default ProductSingle;
+export default ProductDetalji;

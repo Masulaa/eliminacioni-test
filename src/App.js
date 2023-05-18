@@ -1,18 +1,20 @@
-import { Route, Routes, HashRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import ProductDetalji from "./components/Product/ProductDetalji";
 import IzmjeniProduct from "./components/Product/IzmjeniProduct";
+import NoviProduct from "./components/Product/NoviProduct";
 
 function App() {
-    return (
-            <HashRouter>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path={'/product/:id'} element={<ProductDetalji/>}/>
-                <Route path={'/izmjeni/:id'} element={<IzmjeniProduct/>}/>
-            </Routes>
-        </HashRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetalji />} />
+        <Route path="/izmjeni/:id" element={<IzmjeniProduct />} />
+        <Route path="/novi" element={<NoviProduct />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
