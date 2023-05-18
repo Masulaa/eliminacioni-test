@@ -14,9 +14,6 @@ const NoviProduct = () => {
   const [stock, setStock] = useState("");
   const [discount, setDiscount] = useState("");
   
-
-
-
   const addProductHandler = () => {
     i++;
     const addedProduct = {

@@ -40,7 +40,7 @@ const Home = () => {
             ) : (
               <div>
               <h1 className="naslov">Products</h1>
-              <Link to="/novi">Dodaj produkt</Link>
+              <Link to="/product/add">Dodaj produkt</Link>
             </div>)}
         </header>
         <section>

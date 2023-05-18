@@ -47,7 +47,7 @@ const ProductItem = (props) => {
             <button
               className={"edit"}
               onClick={() => {
-                navigate(`/izmjeni/${product.id}`);
+                navigate(`/product/edit/${product.id}`);
               }}
             >
               Izmjeni
