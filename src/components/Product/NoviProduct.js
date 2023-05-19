@@ -2,7 +2,9 @@ import React, { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { productActions } from "../../store/Store";
-let i=30;
+
+let i = 30;
+
 const NoviProduct = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -13,11 +15,23 @@ const NoviProduct = () => {
   const [category, setCategory] = useState("");
   const [stock, setStock] = useState("");
   const [discount, setDiscount] = useState("");
-  
+
   const addProductHandler = () => {
+    if (
+      title.trim() === "" ||
+      description.trim() === "" ||
+      price.trim() === "" ||
+      category.trim() === "" ||
+      stock.trim() === "" ||
+      discount.trim() === ""
+    ) {
+      alert("Molimo unesite sve podatke");
+      return;
+    }
+
     i++;
     const addedProduct = {
-      id: i, 
+      id: i,
       title: title,
       description: description,
       price: parseFloat(price),
@@ -25,7 +39,7 @@ const NoviProduct = () => {
       stock: parseInt(stock),
       discountPercentage: parseInt(discount),
     };
-  
+
     fetch("https://dummyjson.com/products/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -35,7 +49,7 @@ const NoviProduct = () => {
       .then((data) => {
         console.log(addedProduct);
         dispatch(productActions.addProduct(addedProduct));
-        navigate('/')
+        navigate("/");
       })
       .catch((error) => {
         console.log("Došlo je do greške:", error);
@@ -62,10 +76,11 @@ const NoviProduct = () => {
           onChange={(e) => setDescription(e.target.value)}
         />
         <input
-          type="text"
+          type="number"
           name="price"
           placeholder="Cijena"
           className="inputi"
+          min="0"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
@@ -78,18 +93,20 @@ const NoviProduct = () => {
           onChange={(e) => setCategory(e.target.value)}
         />
         <input
-          type="text"
+          type="number"
           name="stock"
           placeholder="Preostalo"
           className="inputi"
+          min="0"
           value={stock}
           onChange={(e) => setStock(e.target.value)}
         />
         <input
-          type="text"
+          type="number"
           name="discount"
           placeholder="Popust"
           className="inputi"
+          min="0"
           value={discount}
           onChange={(e) => setDiscount(e.target.value)}
         />

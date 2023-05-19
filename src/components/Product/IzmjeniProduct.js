@@ -28,6 +28,21 @@ const IzmjeniProduct = () => {
   );
 
   const updateHandler = () => {
+    if (
+      title.trim() === "" ||
+      description.trim() === "" ||
+      typeof price !== "string" ||
+      price.trim() === "" ||
+      category.trim() === "" ||
+      typeof stock !== "string" ||
+      stock.trim() === "" ||
+      discountPercentage.trim() === ""
+    ) {
+      alert("Molimo unesite sve podatke");
+      return;
+    }
+  
+
     const updatedProduct = {
       ...product,
       title: title,
@@ -75,10 +90,11 @@ const IzmjeniProduct = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
           <input
-            type="text"
+            type="number"
             name="price"
             placeholder="Cijena"
             className="inputi"
+            min="0"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
@@ -91,18 +107,20 @@ const IzmjeniProduct = () => {
             onChange={(e) => setCategory(e.target.value)}
           />
           <input
-            type="text"
+            type="number"
             name="stock"
             placeholder="Preostalo"
             className="inputi"
+            min="0"
             value={stock}
             onChange={(e) => setStock(e.target.value)}
           />
           <input
-            type="text"
+            type="number"
             name="discountPercentage"
             placeholder="Popust"
             className="inputi"
+            min="0"
             value={discountPercentage}
             onChange={(e) => setDiscountPercentage(e.target.value)}
           />
