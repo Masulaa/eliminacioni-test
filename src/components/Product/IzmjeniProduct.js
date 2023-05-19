@@ -28,21 +28,6 @@ const IzmjeniProduct = () => {
   );
 
   const updateHandler = () => {
-    if (
-      title.trim() === "" ||
-      description.trim() === "" ||
-      typeof price !== "string" ||
-      price.trim() === "" ||
-      category.trim() === "" ||
-      typeof stock !== "string" ||
-      stock.trim() === "" ||
-      discountPercentage.trim() === ""
-    ) {
-      alert("Molimo unesite sve podatke");
-      return;
-    }
-  
-
     const updatedProduct = {
       ...product,
       title: title,
@@ -126,7 +111,7 @@ const IzmjeniProduct = () => {
           />
         </div>
         <button type="button" onClick={updateHandler}>
-          Izmjeni produkt
+          Edit product
         </button>
       </form>
     </Fragment>
