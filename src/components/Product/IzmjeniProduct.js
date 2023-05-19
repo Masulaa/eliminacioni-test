@@ -108,7 +108,7 @@ const IzmjeniProduct = () => {
           />
         </div>
         <button type="button" onClick={updateHandler}>
-          Edit product
+          Izmjeni produkt
         </button>
       </form>
     </Fragment>

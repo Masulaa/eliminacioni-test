@@ -94,7 +94,7 @@ const NoviProduct = () => {
           onChange={(e) => setDiscount(e.target.value)}
         />
       </div>
-      <button onClick={addProductHandler}>Add Product</button>
+      <button onClick={addProductHandler}>Dodaj produkt</button>
     </Fragment>
   );
 };
